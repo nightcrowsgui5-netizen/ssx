@@ -1061,7 +1061,7 @@ class Component extends DCLogic {
         }) };
     });
     const projetos = this.state.filter === 'all' ? projAll : projAll.filter(p => p.catKey === this.state.filter);
-    const SV = ['photo-1431620828042-54af7f3a9e28','photo-1648487241125-2d7615f05778','photo-1689011615152-19262401b4bf','photo-1734279135113-8bd58bc02b69','photo-1740968786460-e4cd129f98f1'];
+    const SV = ['serv-1','serv-2','serv-3','serv-4','serv-5','serv-6'];
     const servicos = d.serv.slice(0, 6).map((s, i) => {
       const img = U(SV[i % SV.length]), full = d.servFull[i];
       return { ...s, img, full, onOpen: () => this.openDetail({ img, title: s.nome, sub: '', text: full }) };

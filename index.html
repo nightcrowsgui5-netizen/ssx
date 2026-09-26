@@ -521,16 +521,6 @@
   </div>
 </footer>
 
-<!-- ===================== MODAL GALERIA (projeto com fotos) ===================== -->
-<sc-if value="{{ galleryOpen }}" hint-placeholder-val="{{ false }}">
-  <div onClick="{{ closeGallery }}" style="position:fixed;inset:0;z-index:120;background:rgba(8,20,24,.9);display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeUp .3s ease both;">
-    <button onClick="{{ closeGallery }}" aria-label="Fechar" style="position:absolute;top:16px;right:22px;background:none;border:none;color:#fff;font-size:38px;line-height:1;cursor:pointer;z-index:2;">&times;</button>
-    <button onClick="{{ galPrev }}" aria-label="Anterior" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">&lsaquo;</button>
-    <img onClick="{{ stop }}" src="{{ galleryImg }}" alt="Repsol-Sines" style="max-width:88vw;max-height:82vh;object-fit:contain;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5);display:block;">
-    <button onClick="{{ galNext }}" aria-label="Seguinte" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">&rsaquo;</button>
-    <div style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:.05em;background:rgba(0,0,0,.35);padding:6px 14px;border-radius:20px;">{{ galleryCount }}</div>
-  </div>
-</sc-if>
 
 <!-- ===================== MODAL DETALHE (projeto/serviço) ===================== -->
 <sc-if value="{{ detailOpen }}" hint-placeholder-val="{{ false }}">
@@ -625,8 +615,6 @@ class Component extends DCLogic {
     factsIn: false,
     modalOpen: false,
     detail: null,
-    gallery: null,
-    galIdx: 0,
     teamOpen: -1,
     submitted: false,
     dial: '+351',
@@ -660,8 +648,7 @@ class Component extends DCLogic {
   projMeta = [
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2021', catKey:'projetos', local:'Portugal',
       designacao:{pt:'Projeto de execução da Estação da Pampilhosa — Modernização, 2.ª Fase.',en:'Detailed design for Pampilhosa Station — Modernisation, Phase 2.',es:'Proyecto de ejecución de la Estación de Pampilhosa — Modernización, 2.ª Fase.'},
-      imgId:'photo-1431620828042-54af7f3a9e28',
-      gallery:['imagens/empresas/pampilhosa-1.jpg','imagens/empresas/pampilhosa-2.jpg','imagens/empresas/pampilhosa-3.jpg'] },
+      imgId:'photo-1431620828042-54af7f3a9e28' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2021', catKey:'projetos', local:'Portugal',
       designacao:{pt:'Projeto de execução «Linha do Norte, Estação do Entroncamento — desdobramento transversal da junção dupla».',en:'Detailed design «Linha do Norte, Entroncamento Station — transverse splitting of the double junction».',es:'Proyecto de ejecución «Línea del Norte, Estación de Entroncamento — desdoblamiento transversal del cruce doble».'},
       imgId:'photo-1648487241125-2d7615f05778' },
@@ -691,15 +678,13 @@ class Component extends DCLogic {
       imgId:'photo-1740968786460-e4cd129f98f1' },
     { cliente:'Repsol-Sines', clienteFull:'', ano:'2023', catKey:'projfisc', local:'Portugal',
       designacao:{pt:'Terminal ferroviário CIS e infraestruturas complementares — trabalhos complementares à engenharia de detalhe.',en:'CIS railway terminal and complementary infrastructure — works complementary to the detailed engineering.',es:'Terminal ferroviaria CIS e infraestructuras complementarias — trabajos complementarios a la ingeniería de detalle.'},
-      imgId:'photo-1431620828042-54af7f3a9e28',
-      gallery:['imagens/empresas/repsol-1.jpg','imagens/empresas/repsol-2.jpg','imagens/empresas/repsol-3.jpg'] },
+      imgId:'photo-1431620828042-54af7f3a9e28' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2024', catKey:'consultadoria', local:'Portugal',
       designacao:{pt:'Assessoria técnica para apoio da especialidade via-férrea.',en:'Technical advisory supporting the permanent way discipline.',es:'Asesoría técnica de apoyo a la especialidad de vía férrea.'},
       imgId:'photo-1648487241125-2d7615f05778' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2024', catKey:'projetos', local:'Portugal',
       designacao:{pt:'Prestação de serviços para a elaboração do projeto de execução «L. Norte / L. Beira Alta — adaptação do faseamento da Estação da Pampilhosa».',en:'Services for the detailed design «Linha do Norte / Linha da Beira Alta — adaptation of the phasing of Pampilhosa Station».',es:'Prestación de servicios para la elaboración del proyecto de ejecución «Línea del Norte / Línea de Beira Alta — adaptación de las fases de la Estación de Pampilhosa».'},
-      imgId:'photo-1689011615152-19262401b4bf',
-      gallery:['imagens/empresas/lnorte-1.jpg','imagens/empresas/lnorte-2.jpg'] },
+      imgId:'photo-1689011615152-19262401b4bf' },
     { cliente:'Tecnofisil', clienteFull:'', ano:'2025', catKey:'consultadoria', local:'Portugal',
       designacao:{pt:'Apoio à coordenação geral e à revisão das opções de projeto no contexto da via-férrea e especialidades conexas, incluídos no projeto de execução «Linha do Douro – Pocinho – Barca d’Alva – Estudo Prévio + Projeto de Execução».',en:'Support to overall coordination and review of design options for permanent way and related disciplines, within the design «Linha do Douro – Pocinho – Barca d’Alva – Preliminary Study + Detailed Design».',es:'Apoyo a la coordinación general y a la revisión de las opciones de proyecto en el ámbito de la vía férrea y especialidades conexas, incluidos en el proyecto de ejecución «Línea del Duero – Pocinho – Barca d’Alva – Estudio Previo + Proyecto de Ejecución».'},
       imgId:'photo-1734279135113-8bd58bc02b69' },
@@ -1034,9 +1019,6 @@ class Component extends DCLogic {
   setFilter(f) { this.setState({ filter: f }); }
   openModal() { this.setState({ modalOpen: true, submitted: false }); }
   closeModal() { this.setState({ modalOpen: false }); }
-  openGallery(imgs) { this.setState({ gallery: imgs, galIdx: 0 }); }
-  closeGallery() { this.setState({ gallery: null }); }
-  galNav(dir) { this.setState(s => { if (!s.gallery) return null; const n = s.gallery.length; return { galIdx: (s.galIdx + dir + n) % n }; }); }
   openDetail(d) { this.setState({ detail: d }); }
   closeDetail() { this.setState({ detail: null }); }
   field(k, v) { this.setState(s => ({ form: { ...s.form, [k]: v }, errors: { ...s.errors, [k]: undefined } })); }
@@ -1073,7 +1055,7 @@ class Component extends DCLogic {
       const nomeFull = m.clienteFull ? `${m.cliente} — ${m.clienteFull}` : m.cliente;
       const desc = (m.designacao && typeof m.designacao === 'object') ? (m.designacao[L] || m.designacao.pt) : m.designacao;
       return { ...m, nome: nomeFull, desc, categoria, img,
-        onOpen: () => m.gallery ? this.openGallery(m.gallery) : this.openDetail({
+        onOpen: () => this.openDetail({
           img, title: nomeFull, sub: categoria, text: desc,
           hasMeta: true, clientFull: m.clienteFull, local: m.local, categoria
         }) };
@@ -1108,12 +1090,6 @@ class Component extends DCLogic {
       detail: this.state.detail,
       detailOpen: !!this.state.detail,
       openDetail: (dt) => this.openDetail(dt),
-      galleryOpen: !!this.state.gallery,
-      galleryImg: this.state.gallery ? this.state.gallery[this.state.galIdx] : '',
-      galleryCount: this.state.gallery ? (this.state.galIdx + 1) + '/' + this.state.gallery.length : '',
-      galPrev: (e) => { if (e) e.stopPropagation(); this.galNav(-1); },
-      galNext: (e) => { if (e) e.stopPropagation(); this.galNav(1); },
-      closeGallery: () => this.closeGallery(),
       closeDetail: () => this.closeDetail(),
       teamPrev: () => this.teamScroll(-1),
       teamNext: () => this.teamScroll(1),

@@ -1066,8 +1066,9 @@ class Component extends DCLogic {
       };
     });
     const U = (id) => `imagens/${id}.jpg`;
-    const projAll = this.projMeta.map((m) => {
-      const img = U(m.imgId);
+    const PROJ_IMGS = ['proj-1','proj-2','proj-3','proj-4','proj-5','proj-6'];
+    const projAll = this.projMeta.map((m, i) => {
+      const img = U(PROJ_IMGS[i % PROJ_IMGS.length]);
       const categoria = d.catLabels[this.catKeys.indexOf(m.catKey)];
       const nomeFull = m.clienteFull ? `${m.cliente} — ${m.clienteFull}` : m.cliente;
       const desc = (m.designacao && typeof m.designacao === 'object') ? (m.designacao[L] || m.designacao.pt) : m.designacao;

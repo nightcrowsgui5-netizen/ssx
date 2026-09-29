@@ -78,7 +78,7 @@
   }
 
   /* ===================== EQUIPA (cards) ===================== */
-  .team-card{position:relative;border-radius:3px;overflow:hidden;background:#243676;display:flex;flex-direction:column;border:1px solid #9aa6b2;box-shadow:0 10px 30px rgba(15,53,61,.10);transition:transform .4s ease,box-shadow .4s ease;}
+  .team-card{position:relative;border-radius:3px;overflow:hidden;background:#243676;display:flex;flex-direction:column;border:1.5px solid #243676;box-shadow:0 10px 30px rgba(15,53,61,.10);transition:transform .4s ease,box-shadow .4s ease;}
   .team-card:hover{transform:translateY(-10px);box-shadow:0 28px 54px rgba(15,53,61,.20);}
   .team-imgwrap{position:relative;aspect-ratio:1/1.32;overflow:hidden;flex:0 0 auto;}
   .team-imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s ease;}
@@ -359,6 +359,14 @@
         </div>
       </sc-for>
     </div>
+    <div style="display:flex;justify-content:center;gap:14px;margin-top:44px;">
+      <sc-if value="{{ projShowMore }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ moreProjetos }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1px solid #243676;background:#243676;color:#fff;padding:14px 32px;border-radius:2px;transition:background .25s;" style-hover="background:#1a295e;">{{ t.projShowMore }}</button>
+      </sc-if>
+      <sc-if value="{{ projShowLess }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ lessProjetos }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1px solid #d7dcdd;background:transparent;color:#5a6167;padding:14px 32px;border-radius:2px;transition:all .25s;" style-hover="border-color:#243676;color:#243676;">{{ t.projShowLess }}</button>
+      </sc-if>
+    </div>
   </div>
 </section>
 
@@ -611,6 +619,7 @@ class Component extends DCLogic {
     menuOpen: false,
     lang: 'pt',
     filter: 'all',
+    projShown: 3,
     counts: [0,0,0,0],
     countsDone: false,
     factsIn: false,
@@ -719,7 +728,7 @@ class Component extends DCLogic {
         d1t:'Experiência dos sócios-gerentes', d1d:'Percursos construídos no setor ferroviário e acompanhamento direto da atividade.', d2t:'Experiência ao longo do ciclo ferroviário', d2d:'Conhecimento adquirido entre estudos, projeto, construção, renovação e manutenção.', d3t:'Especialização técnica integrada', d3d:'Via-férrea, catenária e sinalização articuladas de acordo com o projeto.', d4t:'Leitura das interfaces do projeto', d4d:'Análise das relações e condicionantes entre diferentes disciplinas.', d5t:'Acompanhamento direto', d5d:'Proximidade e continuidade na relação com o cliente, com responsabilidade técnica dos sócios-gerentes.', d6t:'Rede de especialistas', d6d:'Competências complementares mobilizadas em função da natureza e dimensão do trabalho.',
         numGrandes:'Grandes', numNumeros:'Números',
         servEyebrow:'Serviços', servTitle:'Engenharia especializada para cada fase do projeto ferroviário', servText:'A intervenção da PVH é ajustada à fase do empreendimento e às necessidades de cada interveniente, desde estudos e projeto até consultoria, fiscalização, acompanhamento técnico e formação.', servLink:'Ver mais', intervTitle:'Áreas de intervenção', intervSub:'Apoio técnico especializado, do concurso à execução.', intervText:'A experiência da PVH permite responder a diferentes necessidades no domínio das infraestruturas ferroviárias, atuando de forma complementar aos projetistas, fiscais e donos de obra.', intervLead:'Entre as principais áreas de intervenção, destacamos:', intervCta:'Conheça as nossas áreas de especialização',
-        projEyebrow:'Projetos', projTitle:'Experiência aplicada a projetos ferroviários', projText:'Cada empreendimento ferroviário apresenta condicionantes próprias. A participação dos profissionais da PVH em diferentes fases e especialidades permite enquadrar essas exigências e apoiar decisões técnicas adequadas ao contexto de cada projeto.', projText2:'Conheça alguns dos projetos em que os profissionais da PVH participaram.', projLink:'Ver projeto', projClient:'Cliente', projLocation:'Localização', projCategory:'Categorização',
+        projEyebrow:'Projetos', projTitle:'Experiência aplicada a projetos ferroviários', projText:'Cada empreendimento ferroviário apresenta condicionantes próprias. A participação dos profissionais da PVH em diferentes fases e especialidades permite enquadrar essas exigências e apoiar decisões técnicas adequadas ao contexto de cada projeto.', projText2:'Conheça alguns dos projetos em que os profissionais da PVH participaram.', projLink:'Ver projeto', projShowMore:'Mostrar mais', projShowLess:'Mostrar menos', projClient:'Cliente', projLocation:'Localização', projCategory:'Categorização',
         timeEyebrow:'Linha do Tempo', timeTitle:'Duas décadas de crescimento constante',
         clientsEyebrow:'Clientes e Parceiros', clientsTitle:'Uma rede de relações profissionais construída em diferentes contextos do setor ferroviário', clientsText1:'A atividade da PVH inclui colaboração com entidades públicas e privadas, empresas de engenharia e construção, organizações ligadas à operação de infraestruturas e instituições de ensino.', clientsText2:'Projetos desenvolvidos em Portugal e no estrangeiro refletem a diversidade de contextos em que os profissionais da PVH têm aplicado o seu conhecimento.', clientsText3:'',
         testEyebrow:'Testemunhos', testTitle:'O que dizem os nossos parceiros',
@@ -802,7 +811,7 @@ class Component extends DCLogic {
         d1t:'Experience of the managing partners', d1d:'Paths built in the railway sector and direct monitoring of the activity.', d2t:'Experience across the railway cycle', d2d:'Knowledge acquired across studies, design, construction, renewal and maintenance.', d3t:'Integrated technical specialisation', d3d:'Permanent way, catenary and signalling coordinated according to the project.', d4t:'Reading the project interfaces', d4d:'Analysis of the relationships and constraints between different disciplines.', d5t:'Direct monitoring', d5d:'Proximity and continuity in the client relationship, with technical responsibility held by the managing partners.', d6t:'Network of specialists', d6d:'Complementary skills mobilised according to the nature and scale of the work.',
         numGrandes:'Key', numNumeros:'Figures',
         servEyebrow:'Services', servTitle:'Specialised engineering for every phase of the railway project', servText:'PVH’s involvement is tailored to the project phase and to the needs of each stakeholder, from studies and design through to consultancy, inspection, technical monitoring and training.', servLink:'See more', intervTitle:'Areas of intervention', intervSub:'Specialised technical support, from tender to execution.', intervText:'PVH’s experience allows it to respond to different needs in railway infrastructure, working in a complementary way alongside designers, inspectors and project owners.', intervLead:'Among our main areas of intervention, we highlight:', intervCta:'Discover our areas of specialisation',
-        projEyebrow:'Projects', projTitle:'Experience applied to railway projects', projText:'Each railway undertaking has its own constraints. The involvement of PVH’s professionals across different phases and specialities makes it possible to frame those demands and support technical decisions suited to each project’s context.', projText2:'See some of the projects PVH’s professionals have taken part in.', projLink:'See project', projClient:'Client', projLocation:'Location', projCategory:'Category',
+        projEyebrow:'Projects', projTitle:'Experience applied to railway projects', projText:'Each railway undertaking has its own constraints. The involvement of PVH’s professionals across different phases and specialities makes it possible to frame those demands and support technical decisions suited to each project’s context.', projText2:'See some of the projects PVH’s professionals have taken part in.', projLink:'See project', projShowMore:'Show more', projShowLess:'Show less', projClient:'Client', projLocation:'Location', projCategory:'Category',
         timeEyebrow:'Timeline', timeTitle:'Two decades of steady growth',
         clientsEyebrow:'Clients & Partners', clientsTitle:'A network of professional relationships built across different contexts of the railway sector', clientsText1:'PVH’s activity includes collaboration with public and private entities, engineering and construction companies, organisations linked to infrastructure operation and educational institutions.', clientsText2:'Projects developed in Portugal and abroad reflect the diversity of contexts in which PVH’s professionals have applied their knowledge.', clientsText3:'',
         testEyebrow:'Testimonials', testTitle:'What our partners say',
@@ -885,7 +894,7 @@ class Component extends DCLogic {
         d1t:'Experiencia de los socios gerentes', d1d:'Trayectorias construidas en el sector ferroviario y acompañamiento directo de la actividad.', d2t:'Experiencia a lo largo del ciclo ferroviario', d2d:'Conocimiento adquirido entre estudios, proyecto, construcción, renovación y mantenimiento.', d3t:'Especialización técnica integrada', d3d:'Vía férrea, catenaria y señalización articuladas de acuerdo con el proyecto.', d4t:'Lectura de las interfaces del proyecto', d4d:'Análisis de las relaciones y condicionantes entre diferentes disciplinas.', d5t:'Acompañamiento directo', d5d:'Proximidad y continuidad en la relación con el cliente, con responsabilidad técnica de los socios gerentes.', d6t:'Red de especialistas', d6d:'Competencias complementarias movilizadas en función de la naturaleza y dimensión del trabajo.',
         numGrandes:'Grandes', numNumeros:'Cifras',
         servEyebrow:'Servicios', servTitle:'Ingeniería especializada para cada fase del proyecto ferroviario', servText:'La intervención de PVH se ajusta a la fase del proyecto y a las necesidades de cada interviniente, desde estudios y proyecto hasta consultoría, fiscalización, acompañamiento técnico y formación.', servLink:'Ver más', intervTitle:'Áreas de intervención', intervSub:'Apoyo técnico especializado, de la licitación a la ejecución.', intervText:'La experiencia de PVH permite responder a diferentes necesidades en el ámbito de las infraestructuras ferroviarias, actuando de forma complementaria a proyectistas, fiscalizadores y propietarios de obra.', intervLead:'Entre las principales áreas de intervención, destacamos:', intervCta:'Conozca nuestras áreas de especialización',
-        projEyebrow:'Proyectos', projTitle:'Experiencia aplicada a proyectos ferroviarios', projText:'Cada proyecto ferroviario presenta condicionantes propios. La participación de los profesionales de PVH en diferentes fases y especialidades permite enmarcar esas exigencias y apoyar decisiones técnicas adecuadas al contexto de cada proyecto.', projText2:'Conozca algunos de los proyectos en los que los profesionales de PVH han participado.', projLink:'Ver proyecto', projClient:'Cliente', projLocation:'Ubicación', projCategory:'Categorización',
+        projEyebrow:'Proyectos', projTitle:'Experiencia aplicada a proyectos ferroviarios', projText:'Cada proyecto ferroviario presenta condicionantes propios. La participación de los profesionales de PVH en diferentes fases y especialidades permite enmarcar esas exigencias y apoyar decisiones técnicas adecuadas al contexto de cada proyecto.', projText2:'Conozca algunos de los proyectos en los que los profesionales de PVH han participado.', projLink:'Ver proyecto', projShowMore:'Mostrar más', projShowLess:'Mostrar menos', projClient:'Cliente', projLocation:'Ubicación', projCategory:'Categorización',
         timeEyebrow:'Cronología', timeTitle:'Dos décadas de crecimiento constante',
         clientsEyebrow:'Clientes y Socios', clientsTitle:'Una red de relaciones profesionales construida en diferentes contextos del sector ferroviario', clientsText1:'La actividad de PVH incluye colaboración con entidades públicas y privadas, empresas de ingeniería y construcción, organizaciones ligadas a la operación de infraestructuras e instituciones de enseñanza.', clientsText2:'Proyectos desarrollados en Portugal y en el extranjero reflejan la diversidad de contextos en los que los profesionales de PVH han aplicado su conocimiento.', clientsText3:'',
         testEyebrow:'Testimonios', testTitle:'Lo que dicen nuestros socios',
@@ -1017,7 +1026,9 @@ class Component extends DCLogic {
   }
   toggleTeam(i) { this.setState(s => ({ teamOpen: s.teamOpen === i ? -1 : i })); }
   setLang(l) { this.setState({ lang: l, menuOpen: false }); }
-  setFilter(f) { this.setState({ filter: f }); }
+  setFilter(f) { this.setState({ filter: f, projShown: 3 }); }
+  moreProjetos(n) { this.setState(s => ({ projShown: s.projShown + 3 })); }
+  lessProjetos(n) { this.setState(s => ({ projShown: Math.max(3, s.projShown - 3) })); }
   openModal() { this.setState({ modalOpen: true, submitted: false }); }
   closeModal() { this.setState({ modalOpen: false }); }
   openDetail(d) { this.setState({ detail: d }); }
@@ -1061,7 +1072,10 @@ class Component extends DCLogic {
           hasMeta: true, clientFull: m.clienteFull, local: m.local, categoria
         }) };
     });
-    const projetos = this.state.filter === 'all' ? projAll : projAll.filter(p => p.catKey === this.state.filter);
+    const projFiltered = this.state.filter === 'all' ? projAll : projAll.filter(p => p.catKey === this.state.filter);
+    const projTotal = projFiltered.length;
+    const projShown = Math.min(this.state.projShown, projTotal);
+    const projetos = projFiltered.slice(0, projShown);
     const SV = ['serv-1','serv-2','serv-3','serv-4','serv-5','serv-6'];
     const servicos = d.serv.slice(0, 6).map((s, i) => {
       const img = U(SV[i % SV.length]), full = d.servFull[i];
@@ -1100,6 +1114,10 @@ class Component extends DCLogic {
       areasInterv: (d.interv || []).map(x => ({ txt: x })),
       filtros,
       projetos,
+      projShowMore: projShown < projTotal,
+      projShowLess: projShown > 3,
+      moreProjetos: () => this.moreProjetos(),
+      lessProjetos: () => this.lessProjetos(),
       timeline: d.time,
       clientesLoop: [...this.clientesData, ...this.clientesData],
       depoimentos: d.depo.map((x, i) => ({ ...x, foto: this.depoFotos[i] })),

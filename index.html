@@ -91,7 +91,7 @@
   .team-plate-txt{padding:18px 14px 18px 20px;text-align:left;}
   .team-card.is-active .team-plate,.team-card.is-open .team-plate{background:#1a295e;}
   .team-plate h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;line-height:1.2;}
-  .team-plate p{font-size:12.5px;margin-top:4px;opacity:.85;}
+  .team-plate p{font-size:12.5px;font-weight:700;margin-top:4px;opacity:.85;}
   .team-toggle{flex:0 0 48px;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .3s;}
   .team-toggle:hover{background:rgba(255,255,255,.22);}
   .team-bio{position:absolute;inset:0;background:rgba(36,54,118,.94);color:#fff;padding:24px;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;transform:translateY(10px);transition:opacity .35s,transform .35s;pointer-events:none;z-index:3;}
@@ -99,7 +99,7 @@
   .team-card.is-open .team-bio{opacity:1;transform:none;}
   /* ===================== SERVIÇOS (hover) ===================== */
   .serv-ov{position:absolute;inset:0;background:rgba(36,54,118,.88);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;opacity:0;transition:opacity .35s ease;pointer-events:none;}
-  .serv-ov p{font-size:13.5px;line-height:1.6;}
+  .serv-ov p{font-size:13.5px;font-weight:700;line-height:1.6;}
   .serv-card:hover .serv-ov{opacity:1;}
   .proj-ov{position:absolute;inset:0;background:rgba(36,54,118,.9);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:1;}
   .proj-ov p{font-size:14px;line-height:1.6;}
@@ -333,7 +333,7 @@
       <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#b08d4c;">{{ t.projEyebrow }}</span>
       <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(28px,3vw,40px);line-height:1.16;color:#14454f;margin-top:14px;">{{ t.projTitle }}</h2>
       <p style="font-size:15.5px;color:#5a6167;margin-top:16px;line-height:1.7;">{{ t.projText }}</p>
-      <p style="font-size:15.5px;color:#5a6167;margin-top:12px;line-height:1.7;">{{ t.projText2 }}</p>
+      <p style="font-size:15.5px;font-weight:700;color:#5a6167;margin-top:12px;line-height:1.7;">{{ t.projText2 }}</p>
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:40px;">
       <sc-for list="{{ filtros }}" as="f" hint-placeholder-count="4">
@@ -737,7 +737,7 @@ class Component extends DCLogic {
         timeEyebrow:'Linha do Tempo', timeTitle:'Duas décadas de crescimento constante',
         clientsEyebrow:'Clientes e Parceiros', clientsTitle:"Colaboração com entidades públicas, privadas e académicas.", clientsText1:"Ao longo da sua atividade, a PVH tem desenvolvido relações profissionais com entidades em diferentes contextos do setor.", clientsText2:"", clientsText3:'',
         testEyebrow:'Testemunhos', testTitle:'O que dizem os nossos parceiros',
-        teamEyebrow:'A Nossa Equipa', teamTitle:"Perfis complementares para diferentes frentes do empreendimento.", teamText:"A equipa da PVH reúne profissionais com percursos desenvolvidos em direção, gestão, estudos, projeto, execução e consultoria, complementados por especialização em via-férrea, sinalização, telecomunicações e eletrificação.", teamText2:"Esta diversidade de perfis permite reunir diferentes perspectivas dentro da mesma estrutura e mobilizar as competências adequadas à natureza de cada trabalho.", teamQuote:'A experiência de cada profissional. A força de uma equipa.', teamLink:'in · LinkedIn',
+        teamEyebrow:'A Equipa', teamTitle:"Perfis complementares para diferentes frentes do empreendimento.", teamText:"A equipa da PVH reúne profissionais com percursos desenvolvidos em direção, gestão, estudos, projeto, execução e consultoria, complementados por especialização em via-férrea, sinalização, telecomunicações e eletrificação.", teamText2:"Esta diversidade de perfis permite reunir diferentes perspectivas dentro da mesma estrutura e mobilizar as competências adequadas à natureza de cada trabalho.", teamQuote:'A experiência de cada profissional. A força de uma equipa.', teamLink:'in · LinkedIn',
         procEyebrow:'Processo de Trabalho', procTitle:'Do primeiro contacto à entrega final',
         ctaTitle:"Partilhe o contexto. Avaliamos a forma mais adequada de intervenção.", ctaText:"Indique-nos a fase do empreendimento e as necessidades de apoio. A equipa da PVH analisará o enquadramento e a forma de colaboração mais adequada.", ctaText2:"", ctaBtn:'Pedir Proposta',
         contactEyebrow:'Contacto', contactInfoTitle:'Informações de contacto', contactTitle:"Partilhe o contexto. Avaliamos a forma mais adequada de intervenção.", contactText:"Indique-nos a fase do empreendimento e as necessidades de apoio. A equipa da PVH analisará o enquadramento e a forma de colaboração mais adequada.", contactText2:"", formIntro:"Preencha o formulário com uma breve descrição do empreendimento. Entraremos em contacto consigo para compreender as necessidades de apoio.",
@@ -818,7 +818,7 @@ class Component extends DCLogic {
         timeEyebrow:'Timeline', timeTitle:'Two decades of steady growth',
         clientsEyebrow:'Clients & Partners', clientsTitle:"Collaboration with public, private and academic organisations.", clientsText1:"Throughout its activities, PVH has developed professional relationships with organisations in different contexts within the sector.", clientsText2:"", clientsText3:'',
         testEyebrow:'Testimonials', testTitle:'What our partners say',
-        teamEyebrow:'Our Team', teamTitle:"Complementary profiles for different aspects of each project.", teamText:"PVH’s team brings together professionals with backgrounds in leadership, management, studies, design, execution and consultancy, complemented by expertise in track, signalling, telecommunications and electrification.", teamText2:"This diversity of profiles brings different perspectives together within the same organisation and makes it possible to draw on the expertise suited to each assignment.", teamQuote:'The experience of each professional. The strength of one team.', teamLink:'in · LinkedIn',
+        teamEyebrow:'The Team', teamTitle:"Complementary profiles for different aspects of each project.", teamText:"PVH’s team brings together professionals with backgrounds in leadership, management, studies, design, execution and consultancy, complemented by expertise in track, signalling, telecommunications and electrification.", teamText2:"This diversity of profiles brings different perspectives together within the same organisation and makes it possible to draw on the expertise suited to each assignment.", teamQuote:'The experience of each professional. The strength of one team.', teamLink:'in · LinkedIn',
         procEyebrow:'How We Work', procTitle:'From first contact to final delivery',
         ctaTitle:"Share the context. We will assess the most suitable way to help.", ctaText:"Tell us the project stage and the support you need. PVH’s team will assess the context and the most appropriate form of collaboration.", ctaText2:"", ctaBtn:'Request a Proposal',
         contactEyebrow:'Contact', contactInfoTitle:'Contact information', contactTitle:"Share the context. We will assess the most suitable way to help.", contactText:"Tell us the project stage and the support you need. PVH’s team will assess the context and the most appropriate form of collaboration.", contactText2:"", formIntro:"Complete the form with a brief description of the project. We will contact you to understand your support needs.",
@@ -899,7 +899,7 @@ class Component extends DCLogic {
         timeEyebrow:'Cronología', timeTitle:'Dos décadas de crecimiento constante',
         clientsEyebrow:'Clientes y Socios', clientsTitle:"Colaboración con entidades públicas, privadas y académicas.", clientsText1:"A lo largo de su actividad, PVH ha desarrollado relaciones profesionales con entidades en diferentes contextos del sector.", clientsText2:"", clientsText3:'',
         testEyebrow:'Testimonios', testTitle:'Lo que dicen nuestros socios',
-        teamEyebrow:'Nuestro Equipo', teamTitle:"Perfiles complementarios para diferentes frentes del proyecto.", teamText:"El equipo de PVH reúne profesionales con trayectorias desarrolladas en dirección, gestión, estudios, proyecto, ejecución y consultoría, complementadas por especialización en vía férrea, señalización, telecomunicaciones y electrificación.", teamText2:"Esta diversidad de perfiles permite reunir diferentes perspectivas dentro de la misma estructura y movilizar las competencias adecuadas a la naturaleza de cada trabajo.", teamQuote:'La experiencia de cada profesional. La fuerza de un equipo.', teamLink:'in · LinkedIn',
+        teamEyebrow:'El Equipo', teamTitle:"Perfiles complementarios para diferentes frentes del proyecto.", teamText:"El equipo de PVH reúne profesionales con trayectorias desarrolladas en dirección, gestión, estudios, proyecto, ejecución y consultoría, complementadas por especialización en vía férrea, señalización, telecomunicaciones y electrificación.", teamText2:"Esta diversidad de perfiles permite reunir diferentes perspectivas dentro de la misma estructura y movilizar las competencias adecuadas a la naturaleza de cada trabajo.", teamQuote:'La experiencia de cada profesional. La fuerza de un equipo.', teamLink:'in · LinkedIn',
         procEyebrow:'Proceso de Trabajo', procTitle:'Del primer contacto a la entrega final',
         ctaTitle:"Comparta el contexto. Evaluamos la forma más adecuada de intervención.", ctaText:"Indíquenos la fase del proyecto y las necesidades de apoyo. El equipo de PVH analizará el contexto y la forma de colaboración más adecuada.", ctaText2:"", ctaBtn:'Solicitar Propuesta',
         contactEyebrow:'Contacto', contactInfoTitle:'Información de contacto', contactTitle:"Comparta el contexto. Evaluamos la forma más adecuada de intervención.", contactText:"Indíquenos la fase del proyecto y las necesidades de apoyo. El equipo de PVH analizará el contexto y la forma de colaboración más adecuada.", contactText2:"", formIntro:"Rellene el formulario con una breve descripción del proyecto. Nos pondremos en contacto con usted para comprender las necesidades de apoyo.",

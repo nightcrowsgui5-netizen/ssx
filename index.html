@@ -81,8 +81,11 @@
   .team-card{position:relative;border-radius:3px;overflow:hidden;background:#243676;display:flex;flex-direction:column;border:1.5px solid #d9c191;box-shadow:0 10px 30px rgba(15,53,61,.10);transition:transform .4s ease,box-shadow .4s ease;}
   .team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;}
   .team-grid>.team-card{flex:0 0 236px;}
+  .team-grid-perm{flex-wrap:nowrap;}
+  .team-grid-perm>.team-card{flex:1 1 0;max-width:236px;min-width:0;}
+  @media (max-width:960px){ .team-grid-perm{flex-wrap:wrap;} .team-grid-perm>.team-card{flex:0 0 44%;max-width:320px;} }
   @media (max-width:900px){ .team-grid>.team-card{flex:0 0 44%;} }
-  @media (max-width:600px){ .team-grid>.team-card{flex:0 0 100%;max-width:320px;} }
+  @media (max-width:600px){ .team-grid>.team-card{flex:0 0 100%;max-width:320px;} .team-grid-perm>.team-card{flex:0 0 100%;} }
   .team-group-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#243676;text-align:center;position:relative;}
   .team-group-title span{background:#f4f6f6;padding:0 18px;position:relative;z-index:1;}
   .team-group-title:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#dfe3e6;}
@@ -222,11 +225,11 @@
           <svg width="24" height="24" viewBox="0 0 26 26" fill="none" style="flex:0 0 auto;"><rect x="3.5" y="3.5" width="19" height="19" stroke="#b08d4c" stroke-width="1.6"/><line x1="8" y1="13" x2="18" y2="13" stroke="#b08d4c" stroke-width="1.6"/></svg>
           <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#14454f;">{{ t.valuesTitle }}</div>
         </div>
-        <div style="margin-top:14px;display:flex;flex-direction:column;gap:12px;">
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:13px;">
           <sc-for list="{{ valores }}" as="v" hint-placeholder-count="4">
-            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.55;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;margin-top:2px;"><path d="M5 12.5l4 4 10-10" stroke="#b08d4c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span><span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#14454f;">{{ v.t }}:</span> <span style="color:#6b7378;">{{ v.d }}</span></span>
+            <div style="display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:400;font-size:14.5px;color:#14454f;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;"><path d="M5 12.5l4 4 10-10" stroke="#b08d4c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ v.t }}
             </div>
           </sc-for>
         </div>
@@ -398,7 +401,7 @@
 
 <!-- ===================== EQUIPE ===================== -->
 <section id="equipe" style="padding:34px 0 110px;background:#f4f6f6;">
-  <div style="max-width:1300px;margin:0 auto;padding:0 44px;">
+  <div style="max-width:1380px;margin:0 auto;padding:0 44px;">
     <div style="text-align:center;max-width:980px;margin:0 auto 60px;">
       <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#b08d4c;">{{ t.teamEyebrow }}</span>
       <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(28px,3vw,40px);line-height:1.16;color:#14454f;margin-top:16px;">{{ t.teamTitle }}</h2>
@@ -406,7 +409,7 @@
       <p style="font-size:15.5px;color:#5a6167;margin-top:14px;">{{ t.teamText2 }}</p>
     </div>
     <div class="team-group-title" style="max-width:1080px;margin:0 auto 26px;"><span>{{ t.teamGroup1 }}</span></div>
-    <div class="team-grid" style="max-width:1300px;margin:0 auto;">
+    <div class="team-grid team-grid-perm" style="max-width:1300px;margin:0 auto;">
       <sc-for list="{{ equipePerm }}" as="m" hint-placeholder-count="5">
         <div class="team-card {{ m.cardClass }}">
           <div class="team-imgwrap">
@@ -537,12 +540,19 @@
     </div>
     <div>
       <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:20px;">{{ t.footContact }}</div>
-      <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
-        <span>Praceta do Comércio, N.º 11-B</span>
-        <span>Quinta Grande – Alfragide</span>
-        <span>2610-042 Amadora</span>
-        <a href="tel:+351214718810" style="color:rgba(255,255,255,.7);" style-hover="color:#d9c191;">+351 214 718 810</a>
-        <a href="mailto:geral@pvh.pt" style="color:#d9c191;" style-hover="color:#fff;">geral@pvh.pt</a>
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:14px;">
+        <div style="display:flex;gap:11px;align-items:flex-start;">
+          <svg width="17" height="17" viewBox="0 0 18 18" fill="none" style="flex:0 0 auto;margin-top:2px;color:#d9c191;"><path d="M9 1.5c3 0 5.5 2.4 5.5 5.4C14.5 11 9 16.5 9 16.5S3.5 11 3.5 6.9C3.5 3.9 6 1.5 9 1.5z" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="9" cy="7" r="1.8" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span style="line-height:1.5;">Praceta do Comércio, N.º 11-B<br>Quinta Grande – Alfragide<br>2610-042 Amadora</span>
+        </div>
+        <div style="display:flex;gap:11px;align-items:center;">
+          <svg width="17" height="17" viewBox="0 0 18 18" fill="none" style="flex:0 0 auto;color:#d9c191;"><path d="M4 3h3l1.5 4L6.5 8.5a9 9 0 004 4L12 11l4 1.5V15c0 .6-.4 1-1 1A12 12 0 013 4c0-.6.4-1 1-1z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+          <a href="tel:+351214718810" style="color:rgba(255,255,255,.7);" style-hover="color:#d9c191;">+351 214 718 810</a>
+        </div>
+        <div style="display:flex;gap:11px;align-items:center;">
+          <svg width="17" height="17" viewBox="0 0 18 18" fill="none" style="flex:0 0 auto;color:#d9c191;"><rect x="2.5" y="3.5" width="13" height="11" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M3 4.5l6 4.5 6-4.5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+          <a href="mailto:geral@pvh.pt" style="color:#d9c191;" style-hover="color:#fff;">geral@pvh.pt</a>
+        </div>
       </div>
     </div>
   </div>

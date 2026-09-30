@@ -1054,7 +1054,7 @@ class Component extends DCLogic {
   setLang(l) { this.setState({ lang: l, menuOpen: false }); }
   setFilter(f) { this.setState({ filter: f, projShown: 3 }); }
   moreProjetos(n) { this.setState(s => ({ projShown: s.projShown + 3 })); }
-  lessProjetos(n) { this.setState(s => ({ projShown: Math.max(3, s.projShown - 3) })); setTimeout(() => { const el = document.getElementById('projetos'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40); }
+  lessProjetos(n) { this.setState(s => ({ projShown: Math.max(3, s.projShown - 3) })); }
   setMapMode(m) { this.setState({ mapMode: m }); }
   openModal() { this.setState({ modalOpen: true, submitted: false }); }
   closeModal() { this.setState({ modalOpen: false }); }

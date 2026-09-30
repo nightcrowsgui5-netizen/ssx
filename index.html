@@ -471,7 +471,6 @@
         <div style="position:absolute;top:10px;left:10px;display:flex;gap:6px;background:rgba(255,255,255,.92);padding:4px;border-radius:3px;box-shadow:0 1px 6px rgba(0,0,0,.18);">
           <button type="button" onClick="{{ setMapK }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;padding:6px 11px;border:0;border-radius:2px;cursor:pointer;background:{{ mapBgK }};color:{{ mapFgK }};">{{ t.mapSat }}</button>
           <button type="button" onClick="{{ setMapM }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;padding:6px 11px;border:0;border-radius:2px;cursor:pointer;background:{{ mapBgM }};color:{{ mapFgM }};">{{ t.mapRoad }}</button>
-          <button type="button" onClick="{{ setMapH }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;padding:6px 11px;border:0;border-radius:2px;cursor:pointer;background:{{ mapBgH }};color:{{ mapFgH }};">{{ t.mapHybrid }}</button>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Praceta+do+Com%C3%A9rcio+11-B%2C+Quinta+Grande%2C+2610-042+Amadora" target="_blank" rel="noopener" style="position:absolute;bottom:10px;right:10px;background:#14454f;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.04em;padding:8px 14px;border-radius:2px;text-decoration:none;">{{ t.mapBtn }} ↗</a>
       </div>
@@ -652,7 +651,7 @@ class Component extends DCLogic {
     lang: 'pt',
     filter: 'all',
     projShown: 3,
-    mapMode: 'k',
+    mapMode: 'm',
     counts: [0,0,0,0],
     countsDone: false,
     factsIn: false,
@@ -1159,7 +1158,7 @@ class Component extends DCLogic {
       mapFgM: this.state.mapMode === 'm' ? '#fff' : '#14454f',
       mapBgH: this.state.mapMode === 'h' ? '#14454f' : 'transparent',
       mapFgH: this.state.mapMode === 'h' ? '#fff' : '#14454f',
-      mapSrc: `https://maps.google.com/maps?q=${encodeURIComponent('Praceta do Comércio 11-B, Quinta Grande, 2610-042 Amadora')}&t=${this.state.mapMode}&z=18&hl=${L}&output=embed`,
+      mapSrc: `https://maps.google.com/maps?q=${encodeURIComponent('Praceta do Comércio 11-B, Quinta Grande, 2610-042 Amadora')}&t=${this.state.mapMode}&z=15&hl=${L}&output=embed`,
       timeline: d.time,
       clientesLoop: [...this.clientesData, ...this.clientesData],
       depoimentos: d.depo.map((x, i) => ({ ...x, foto: this.depoFotos[i] })),

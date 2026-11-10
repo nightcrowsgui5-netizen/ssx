@@ -469,7 +469,7 @@
         <div style="display:flex;gap:14px;align-items:flex-start;"><span style="width:38px;height:38px;flex-shrink:0;border:1px solid #d7dcdd;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#b08d4c;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M2 9h14M9 2c2 2.3 2 12.7 0 14M9 2c-2 2.3-2 12.7 0 14" stroke="currentColor" stroke-width="1.4"/></svg></span><div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a9297;">{{ t.lblWeb }}</div><a href="https://www.pvh.pt" target="_blank" rel="noopener" style="font-size:15px;color:#14454f;font-weight:600;text-decoration:none;">www.pvh.pt</a></div></div>
       </div>
       <div style="margin-top:32px;aspect-ratio:16/7;border-radius:3px;overflow:hidden;border:1px solid #e4e8e9;position:relative;">
-        <iframe title="Mapa — Alfragide" src="{{ mapSrc }}" style="width:100%;height:100%;border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Mapa – Alfragide" src="{{ mapSrc }}" style="width:100%;height:100%;border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div style="position:absolute;top:10px;left:10px;display:flex;gap:6px;background:rgba(255,255,255,.92);padding:4px;border-radius:3px;box-shadow:0 1px 6px rgba(0,0,0,.18);">
           <button type="button" onClick="{{ setMapK }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;padding:6px 11px;border:0;border-radius:2px;cursor:pointer;background:{{ mapBgK }};color:{{ mapFgK }};">{{ t.mapSat }}</button>
           <button type="button" onClick="{{ setMapM }}" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;padding:6px 11px;border:0;border-radius:2px;cursor:pointer;background:{{ mapBgM }};color:{{ mapFgM }};">{{ t.mapRoad }}</button>
@@ -669,18 +669,18 @@ class Component extends DCLogic {
   factVals = [40, 3, 3, 4];
 
   clientesData = [
-    {"nome":"IP — Infraestruturas de Portugal","logo":"imagens/clientes/ip.png"},
-    {"nome":"ISEL — Instituto Superior de Engenharia de Lisboa","logo":"imagens/clientes/isel.png"},
+    {"nome":"IP – Infraestruturas de Portugal","logo":"imagens/clientes/ip.png"},
+    {"nome":"ISEL – Instituto Superior de Engenharia de Lisboa","logo":"imagens/clientes/isel.png"},
     {"nome":"Administração do Porto de Aveiro","logo":"imagens/clientes/porto-aveiro.png"},
-    {"nome":"AVAN NORTE — Gestão da Ferrovia de Alta Velocidade, S.A.","logo":"imagens/clientes/avan-norte.png"},
+    {"nome":"AVAN NORTE – Gestão da Ferrovia de Alta Velocidade, S.A.","logo":"imagens/clientes/avan-norte.png"},
     {"nome":"Repsol","logo":"imagens/clientes/repsol.png"},
     {"nome":"Betar Engenharia","logo":"imagens/clientes/betar.png"},
     {"nome":"Quadrante Engenharia","logo":"imagens/clientes/quadrante.png"},
-    {"nome":"Tecnofisil — Consultores de Engenharia","logo":"imagens/clientes/tecnofisil.png"},
+    {"nome":"Tecnofisil – Consultores de Engenharia","logo":"imagens/clientes/tecnofisil.png"},
     {"nome":"Sacyr Neopul","logo":"imagens/clientes/sacyr-neopul.png"},
-    {"nome":"COMSA — Sucursal Portugal","logo":"imagens/clientes/comsa.png"},
+    {"nome":"COMSA – Sucursal Portugal","logo":"imagens/clientes/comsa.png"},
     {"nome":"Somafel","logo":"imagens/clientes/somafel.png"},
-    {"nome":"ADRVT — Agência de Desenvolvimento Regional do Vale do Tua","logo":"imagens/clientes/adrvt.png"},
+    {"nome":"ADRVT – Agência de Desenvolvimento Regional do Vale do Tua","logo":"imagens/clientes/adrvt.png"},
     {"nome":"VW Autoeuropa","logo":"imagens/clientes/vw-autoeuropa.png"}
   ];
 
@@ -688,13 +688,13 @@ class Component extends DCLogic {
 
   catKeys = ['all','consultadoria','projfisc','formacao'];
 
-  /* Fonte: FINAL DESENVOLVIMENTO WEBSITE PVH.pdf — Principais Projetos/Serviços */
+  /* Fonte: FINAL DESENVOLVIMENTO WEBSITE PVH.pdf – Principais Projetos/Serviços */
   projMeta = [
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2021', catKey:'projfisc', local:'Portugal',
-      designacao:{pt:'Projeto de execução da Estação da Pampilhosa — Modernização, 2.ª Fase.',en:'Detailed design for Pampilhosa Station — Modernisation, Phase 2.',es:'Proyecto de ejecución de la Estación de Pampilhosa — Modernización, 2.ª Fase.'},
+      designacao:{pt:'Projeto de execução da Estação da Pampilhosa – Modernização, 2.ª Fase.',en:'Detailed design for Pampilhosa Station – Modernisation, Phase 2.',es:'Proyecto de ejecución de la Estación de Pampilhosa – Modernización, 2.ª Fase.'},
       imgId:'photo-1431620828042-54af7f3a9e28' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2021', catKey:'projfisc', local:'Portugal',
-      designacao:{pt:'Projeto de execução «Linha do Norte, Estação do Entroncamento — desdobramento transversal da junção dupla».',en:'Detailed design «Linha do Norte, Entroncamento Station — transverse splitting of the double junction».',es:'Proyecto de ejecución «Línea del Norte, Estación de Entroncamento — desdoblamiento transversal del cruce doble».'},
+      designacao:{pt:'Projeto de execução «Linha do Norte, Estação do Entroncamento – desdobramento transversal da junção dupla».',en:'Detailed design «Linha do Norte, Entroncamento Station – transverse splitting of the double junction».',es:'Proyecto de ejecución «Línea del Norte, Estación de Entroncamento – desdoblamiento transversal del cruce doble».'},
       imgId:'photo-1648487241125-2d7615f05778' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2022', catKey:'consultadoria', local:'Portugal',
       designacao:{pt:'Elaboração de estudos para aplicação de via não balastrada na Rede Ferroviária Nacional.',en:'Studies for the application of ballastless track on the National Railway Network.',es:'Elaboración de estudios para la aplicación de vía sin balasto en la Red Ferroviaria Nacional.'},
@@ -715,19 +715,19 @@ class Component extends DCLogic {
       designacao:{pt:'Regulamento interno de circulação no parque das linhas da VW Autoeuropa.',en:'Internal traffic regulations for the VW Autoeuropa rail yard.',es:'Reglamento interno de circulación en el parque de vías de VW Autoeuropa.'},
       imgId:'photo-1689011615152-19262401b4bf' },
     { cliente:'Betar', clienteFull:'', ano:'2023', catKey:'consultadoria', local:'Moçambique',
-      designacao:{pt:'Linha Ressano Garcia — estudo operacional e análise técnica de soluções para a duplicação da linha.',en:'Ressano Garcia Line — operational study and technical analysis of solutions for doubling the line.',es:'Línea Ressano Garcia — estudio operativo y análisis técnico de soluciones para la duplicación de la línea.'},
+      designacao:{pt:'Linha Ressano Garcia – estudo operacional e análise técnica de soluções para a duplicação da linha.',en:'Ressano Garcia Line – operational study and technical analysis of solutions for doubling the line.',es:'Línea Ressano Garcia – estudio operativo y análisis técnico de soluciones para la duplicación de la línea.'},
       imgId:'photo-1734279135113-8bd58bc02b69' },
     { cliente:'APA', clienteFull:'Administração do Porto de Aveiro', ano:'2023', catKey:'projfisc', local:'Portugal',
       designacao:{pt:'Serviços especializados de acompanhamento, supervisão e revisão da alteração ao projeto ferroviário do Terminal Intermodal do Porto de Aveiro.',en:'Specialised monitoring, supervision and review of the amendment to the railway design of the Port of Aveiro Intermodal Terminal.',es:'Servicios especializados de acompañamiento, supervisión y revisión de la modificación del proyecto ferroviario de la Terminal Intermodal del Puerto de Aveiro.'},
       imgId:'photo-1740968786460-e4cd129f98f1' },
     { cliente:'Repsol-Sines', clienteFull:'', ano:'2023', catKey:'projfisc', local:'Portugal',
-      designacao:{pt:'Terminal ferroviário CIS e infraestruturas complementares — trabalhos complementares à engenharia de detalhe.',en:'CIS railway terminal and complementary infrastructure — works complementary to the detailed engineering.',es:'Terminal ferroviaria CIS e infraestructuras complementarias — trabajos complementarios a la ingeniería de detalle.'},
+      designacao:{pt:'Terminal ferroviário CIS e infraestruturas complementares – trabalhos complementares à engenharia de detalhe.',en:'CIS railway terminal and complementary infrastructure – works complementary to the detailed engineering.',es:'Terminal ferroviaria CIS e infraestructuras complementarias – trabajos complementarios a la ingeniería de detalle.'},
       imgId:'photo-1431620828042-54af7f3a9e28' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2024', catKey:'consultadoria', local:'Portugal',
       designacao:{pt:'Assessoria técnica para apoio da especialidade via-férrea.',en:'Technical advisory supporting the permanent way discipline.',es:'Asesoría técnica de apoyo a la especialidad de vía férrea.'},
       imgId:'photo-1648487241125-2d7615f05778' },
     { cliente:'IP', clienteFull:'Infraestruturas de Portugal', ano:'2024', catKey:'projfisc', local:'Portugal',
-      designacao:{pt:'Prestação de serviços para a elaboração do projeto de execução «L. Norte / L. Beira Alta — adaptação do faseamento da Estação da Pampilhosa».',en:'Services for the detailed design «Linha do Norte / Linha da Beira Alta — adaptation of the phasing of Pampilhosa Station».',es:'Prestación de servicios para la elaboración del proyecto de ejecución «Línea del Norte / Línea de Beira Alta — adaptación de las fases de la Estación de Pampilhosa».'},
+      designacao:{pt:'Prestação de serviços para a elaboração do projeto de execução «L. Norte / L. Beira Alta – adaptação do faseamento da Estação da Pampilhosa».',en:'Services for the detailed design «Linha do Norte / Linha da Beira Alta – adaptation of the phasing of Pampilhosa Station».',es:'Prestación de servicios para la elaboración del proyecto de ejecución «Línea del Norte / Línea de Beira Alta – adaptación de las fases de la Estación de Pampilhosa».'},
       imgId:'photo-1689011615152-19262401b4bf' },
     { cliente:'Tecnofisil', clienteFull:'', ano:'2025', catKey:'consultadoria', local:'Portugal',
       designacao:{pt:'Apoio à coordenação geral e à revisão das opções de projeto no contexto da via-férrea e especialidades conexas, incluídos no projeto de execução «Linha do Douro – Pocinho – Barca d’Alva – Estudo Prévio + Projeto de Execução».',en:'Support to overall coordination and review of design options for permanent way and related disciplines, within the design «Linha do Douro – Pocinho – Barca d’Alva – Preliminary Study + Detailed Design».',es:'Apoyo a la coordinación general y a la revisión de las opciones de proyecto en el ámbito de la vía férrea y especialidades conexas, incluidos en el proyecto de ejecución «Línea del Duero – Pocinho – Barca d’Alva – Estudio Previo + Proyecto de Ejecución».'},
@@ -736,7 +736,7 @@ class Component extends DCLogic {
       designacao:{pt:'Contrato para revisão do projeto relativo à concessão da linha ferroviária de alta velocidade entre Porto (Campanhã) e Oiã. Especialidades de via, catenária e infraestruturas de sinalização.',en:'Contract for the review of the design for the high-speed rail concession between Porto (Campanhã) and Oiã. Track, catenary and signalling infrastructure disciplines.',es:'Contrato para la revisión del proyecto de la concesión de la línea ferroviaria de alta velocidad entre Oporto (Campanhã) y Oiã. Especialidades de vía, catenaria e infraestructuras de señalización.'},
       imgId:'photo-1740968786460-e4cd129f98f1' },
     { cliente:'ISEL', clienteFull:'Instituto Superior de Engenharia de Lisboa', ano:{pt:'2022 – Presente',en:'2022 – Present',es:'2022 – Actualidad'}, catKey:'formacao', local:'Portugal',
-      designacao:{pt:'PGEEF — Pós-Graduação de Especialização em Engenharia Ferroviária.',en:'PGEEF — Postgraduate Specialisation in Railway Engineering.',es:'PGEEF — Posgrado de Especialización en Ingeniería Ferroviaria.'},
+      designacao:{pt:'PGEEF – Pós-Graduação de Especialização em Engenharia Ferroviária.',en:'PGEEF – Postgraduate Specialisation in Railway Engineering.',es:'PGEEF – Posgrado de Especialización en Ingeniería Ferroviaria.'},
       imgId:'photo-1431620828042-54af7f3a9e28' },
   ];
 
@@ -1093,7 +1093,7 @@ class Component extends DCLogic {
     const projAll = this.projMeta.map((m, i) => {
       const img = U(PROJ_IMGS[i % PROJ_IMGS.length]);
       const categoria = d.catLabels[this.catKeys.indexOf(m.catKey)];
-      const nomeFull = m.clienteFull ? `${m.cliente} — ${m.clienteFull}` : m.cliente;
+      const nomeFull = m.clienteFull ? `${m.cliente} – ${m.clienteFull}` : m.cliente;
       const desc = (m.designacao && typeof m.designacao === 'object') ? (m.designacao[L] || m.designacao.pt) : m.designacao;
       const local = ({'Nigéria':{en:'Nigeria',es:'Nigeria'},'Moçambique':{en:'Mozambique',es:'Mozambique'}}[m.local] || {})[L] || m.local;
       const ano = typeof m.ano === 'object' ? m.ano[L] : m.ano;
